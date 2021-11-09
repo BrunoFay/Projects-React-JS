@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  text-align: center;
+ 
+  border: solid black;
+  height: 500px;
+}
+form button{
+  width: 80px;
+  margin: 20px 300px;
+}
+label{margin-top: 8px;}
+.attr{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#cardRarity{
+  margin:20px ;
+}
+#cardImage{
+  margin: 1px;
+}
+#cardDescri{
+  width: 250px;
+  height: 60px;
+  margin: 10px 0 10px 32%;
+}
+#cardName{
+  margin:10px  32%;
+  width: 250px;
+}
+#firstAtribute,#secondAtribute,#thirdAtribute{
+  width: 150px;
+  margin: 10px 15px;
+}
+.filters{
+  width: 550px;
+  background-color: blueviolet;
+  
+}
+.filters label{
+  margin:10px 32%;
+  display: flex;
+}
+.mommy{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.card{
+  background-color: brown;
+  display: block;
+  overflow: auto;
+  width: 400px;
+}
+
+.card-atts{
+  
+  background-color: cadetblue;
+  
+  display: flex;
+  justify-content: space-evenly;
+  font-size: xx-large;
+}
+.title {
+  margin-top: 50px;
+  background-color: cornflowerblue;
+  
+  
+}
+.card-image{
+  margin: 50px 70px;
+}
