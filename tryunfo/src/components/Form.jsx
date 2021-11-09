@@ -105,6 +105,7 @@ export default class Form extends React.Component {
             onChange={ onInputChange }
             name="cardRare"
           >
+            <option> </option>
             <option>normal</option>
             <option>raro</option>
             <option>muito raro</option>

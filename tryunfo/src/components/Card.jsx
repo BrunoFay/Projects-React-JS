@@ -25,8 +25,10 @@ export default class Card extends React.Component {
           className='card-image'
         />
         <p data-testid="description-card" name="cardDescription">{cardDescription}</p>
-        <span data-testid="rare-card" name="cardRare">{cardRare}</span>
-        {cardTrunfo && <div data-testid="trunfo-card">Super Trunfo</div>}
+       <div className = 'card-rarity'>
+          <span data-testid="rare-card" name="cardRare">{cardRare}</span>
+          {cardTrunfo && <div data-testid="trunfo-card">Super Trunfo</div>}
+       </div>
        <div className='card-atts'>
           <span data-testid="attr1-card" name="cardAttr1" className='card-att'>{cardAttr1}</span>
           <span data-testid="attr2-card" name="cardAttr2"className='card-att'>{cardAttr2}</span>

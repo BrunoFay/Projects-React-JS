@@ -216,20 +216,23 @@ class App extends React.Component {
           />
 
        </main>  
-        <Filtred
-          filterCardName={ this.filterCardByName }
-          filterCardRarity={ this.filterCardByRarity }
-          filterCardByTrunfo={ this.filterCardByTrunfo }
-          trunfoFilter={ trunfoFilter }
-
-        />
-        <Cards
-          removeCard={ this.removeCard }
-          deckCards={ deckCards }
-          filterByName={ filterByName }
-          filterByRarity={ filterByRarity }
-          trunfoFilter={ trunfoFilter }
-        />
+      
+          <Filtred
+            filterCardName={ this.filterCardByName }
+            filterCardRarity={ this.filterCardByRarity }
+            filterCardByTrunfo={ this.filterCardByTrunfo }
+            trunfoFilter={ trunfoFilter }
+  
+          />
+           <section className='deck'>
+          <Cards
+            removeCard={ this.removeCard }
+            deckCards={ deckCards }
+            filterByName={ filterByName }
+            filterByRarity={ filterByRarity }
+            trunfoFilter={ trunfoFilter }
+          />
+       </section>
 
       </div>
       </>

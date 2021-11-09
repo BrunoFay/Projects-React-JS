@@ -30,12 +30,15 @@ label{margin-top: 8px;}
   flex-direction: column;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+main{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 #cardRarity{
   margin:20px ;
 }
-#cardImage{
-  margin: 1px;
-}
+
 #cardDescri{
   width: 250px;
   height: 60px;
@@ -50,7 +53,8 @@ label{margin-top: 8px;}
   margin: 10px 15px;
 }
 .filters{
-  width: 550px;
+  margin-top: 200px;
+  width: 100%;
   background-color: blueviolet;
   
 }
@@ -58,16 +62,16 @@ label{margin-top: 8px;}
   margin:10px 32%;
   display: flex;
 }
-.mommy{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
+
 .card{
   background-color: brown;
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
-  width: 400px;
+  align-content: space-between;
+  max-width: 300px;
+  max-height: 600px;
+  text-align: center;
 }
 
 .card-atts{
@@ -77,13 +81,31 @@ label{margin-top: 8px;}
   display: flex;
   justify-content: space-evenly;
   font-size: xx-large;
+  
 }
 .title {
-  margin-top: 50px;
-  background-color: cornflowerblue;
+
+ 
   
+  background-color: cornflowerblue;
+  width: 100%;
+  font-size: xx-large;
   
 }
 .card-image{
-  margin: 50px 70px;
+  margin: 5% 5%;
+ 
+}
+.card-rarity{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50%;
+}
+.cards-deck{
+  height: auto;
+}
+.deck{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

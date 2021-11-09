@@ -15,7 +15,7 @@ export default class Cards extends React.Component {
       trunfoFilter ? deckCards
         .filter((card) => card.trunfo)
         .map((card) => (
-          <div key={ card.name } >
+          <div key={ card.name } className='cards-deck' >
             <Card
               cardName={ card.name }
               cardDescription={ card.description }
@@ -27,6 +27,7 @@ export default class Cards extends React.Component {
               cardTrunfo={ card.trunfo }
               deckCards={ card.deckCards }
               removeCard={ this.removeCard }
+              className='cards-deck'
             />
             <button
               type="submit"
@@ -51,7 +52,7 @@ export default class Cards extends React.Component {
             }
             return card;
           }).map((card) => (
-            <div key={ card.name }>
+            <div key={ card.name }className='cards-deck'>
               <Card
                 cardName={ card.name }
                 cardDescription={ card.description }
