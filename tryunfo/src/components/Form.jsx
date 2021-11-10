@@ -86,7 +86,7 @@ export default class Form extends React.Component {
             image
             <input
               type="text"
-              id="cardImage"
+              id="Input-cardImage"
               data-testid="image-input"
               value={ cardImage }
               onChange={ onInputChange }
@@ -99,16 +99,16 @@ export default class Form extends React.Component {
         <label htmlFor="cardRarity">
           raridade
           <select
-            id="cardRarity"
+            id="Input-CardRarity"
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
             name="cardRare"
           >
             <option> </option>
-            <option>normal</option>
-            <option>raro</option>
-            <option>muito raro</option>
+            <option>Normal</option>
+            <option>Raro</option>
+            <option >Muito Raro</option>
           </select>
 
         </label>

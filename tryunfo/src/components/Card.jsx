@@ -16,7 +16,7 @@ export default class Card extends React.Component {
     return (
 
       <div className='card'>
-        <span data-testid="name-card" className="title">{cardName}</span>
+        <span data-testid="name-card" className="title">{cardName.toUpperCase()}</span>
         <img
           data-testid="image-card"
           src={ cardImage }
@@ -24,11 +24,11 @@ export default class Card extends React.Component {
           name="cardImage"
           className='card-image'
         />
-        <p data-testid="description-card" name="cardDescription">{cardDescription}</p>
        <div className = 'card-rarity'>
           <span data-testid="rare-card" name="cardRare">{cardRare}</span>
-          {cardTrunfo && <div data-testid="trunfo-card">Super Trunfo</div>}
+          {cardTrunfo && <div data-testid="trunfo-card" id='card-trunfo'>Super Trunfo</div>}
        </div>
+        <span data-testid="description-card" name="cardDescription" className ='card-desc'>{cardDescription}</span>
        <div className='card-atts'>
           <span data-testid="attr1-card" name="cardAttr1" className='card-att'>{cardAttr1}</span>
           <span data-testid="attr2-card" name="cardAttr2"className='card-att'>{cardAttr2}</span>

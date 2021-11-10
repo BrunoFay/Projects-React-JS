@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Zen Antique;
+  color: #171a20da;
 }
 
 code {
@@ -30,13 +29,17 @@ label{margin-top: 8px;}
   flex-direction: column;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+ #Input-cardImage,#Input-CardRarity{
+  margin: 10px;
+
+}
 main{
   display: flex;
   justify-content: space-evenly;
 }
 
-#cardRarity{
-  margin:20px ;
+#card-trunfo{
+  color: rgb(243, 178, 13);
 }
 
 #cardDescri{
@@ -64,19 +67,21 @@ main{
 }
 
 .card{
-  background-color: brown;
   display: flex;
   flex-direction: column;
   overflow: auto;
   align-content: space-between;
-  max-width: 300px;
+  width: 330px;
   max-height: 600px;
   text-align: center;
+  background: linear-gradient(to bottom right, #373B44, #4286f4);
+  box-shadow: 0px 0px 30px -5px black;
+  border-radius: 10px;
 }
 
 .card-atts{
   
-  background-color: cadetblue;
+  background: linear-gradient(to bottom right, #f12711, #f5af19);
   
   display: flex;
   justify-content: space-evenly;
@@ -87,25 +92,53 @@ main{
 
  
   
-  background-color: cornflowerblue;
+  background: linear-gradient(to bottom right, #f12711, #f5af19);
   width: 100%;
   font-size: xx-large;
   
 }
 .card-image{
   margin: 5% 5%;
+  max-height: 290px ;
+  border-radius: 7px;
  
 }
 .card-rarity{
   display: flex;
   justify-content: space-around;
-  margin-top: 50%;
+  color: crimson;
+  font-size: larger;
+  margin-bottom: 10%;
 }
 .cards-deck{
   height: auto;
+}
+.card-desc{
+  background-color: bisque;
+  white-space: normal;
+  text-align: center;
+  height: 100px;
+  display: block;
+  overflow-wrap: break-word;
+  margin: 10px 50px 30px 50px ;
+  border-radius: 7px;
+  box-shadow: 0px 0px 30px -5px rgb(185, 168, 148);
+ 
 }
 .deck{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.cards-deck {
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+.cards-deck button{
+  width: 50%;
+  margin: 10px 80px;
+  justify-content: center;
 }
