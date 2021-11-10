@@ -13,14 +13,16 @@ export default class Filtred extends React.Component {
       <div className='filters'>
         <div>
           <label htmlFor="search-filter">
+            Deck Filter
             <input
               type="text"
               data-testid="name-filter"
-              id="search-filter"
+              id="input-filter"
               onChange={ filterCardName }
               disabled={ trunfoFilter }
             />
           </label>
+          
         </div>
 
         <label htmlFor="filter-rarity">
@@ -37,7 +39,7 @@ export default class Filtred extends React.Component {
           </select>
         </label>
         <label htmlFor="trunfo-filter">
-          Super Trunfo ?
+          Super Trunfo 
           <input
             type="checkbox"
             id="trunfo-filter"

@@ -34,12 +34,12 @@ class App extends React.Component {
   }
   componentDidMount() {
     let cards = localStorage.getItem('deckCards');
-    if (cards){
-    cards = JSON.parse(cards)
-    this.setState({ deckCards: cards })
+    if (cards) {
+      cards = JSON.parse(cards)
+      this.setState({ deckCards: cards })
     }
   }
-  
+
   // referencia: função usada nos exercicios feitos em aula
   handleChange({ target }) {
     const { name } = target;
@@ -105,22 +105,22 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       deckCards } = this.state;
-      const updatedDeck = [...deckCards, {
-        name: cardName,
-        description: cardDescription,
-        cardValues: {
-          attr1: cardAttr1,
-          attr2: cardAttr2,
-          attr3: cardAttr3,
-        },
-        image: cardImage,
-        rarity: cardRare,
-        trunfo: cardTrunfo,
-      }]
+    const updatedDeck = [...deckCards, {
+      name: cardName,
+      description: cardDescription,
+      cardValues: {
+        attr1: cardAttr1,
+        attr2: cardAttr2,
+        attr3: cardAttr3,
+      },
+      image: cardImage,
+      rarity: cardRare,
+      trunfo: cardTrunfo,
+    }]
 
     if (cardTrunfo) this.setState({ hasTrunfo: true });
     this.setState(() => ({
-      deckCards:updatedDeck,
+      deckCards: updatedDeck,
     }));
     localStorage.setItem('deckCards', JSON.stringify(updatedDeck));
     // https://www.youtube.com/watch?v=8SbOweou7Rw
@@ -147,12 +147,12 @@ class App extends React.Component {
     this.setState({
       deckCards: updateCards,
     });
-   
+
     localStorage.setItem('deckCards', JSON.stringify(updateCards));
   }
 
   filterCardByName({ target }) {
-    
+
     this.setState({ filterByName: target.value });
   }
 
@@ -183,58 +183,58 @@ class App extends React.Component {
 
     return (
       <>
-        <h1>Tryunfo</h1>
+        <header><h1>Tryunfo</h1></header>
 
-      <div className='mommy'>
+        <div className='mommy'>
 
-      <main>
-          <Form
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-            hasTrunfo={ hasTrunfo }
-            isSaveButtonDisabled={ isSaveButtonDisabled }
-            onInputChange={ this.handleChange }
-            onSaveButtonClick={ this.saveCard }
-  
-          />
-          <Card
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-  
-          />
+          <main>
+            <Form
+              cardName={cardName}
+              cardDescription={cardDescription}
+              cardAttr1={cardAttr1}
+              cardAttr2={cardAttr2}
+              cardAttr3={cardAttr3}
+              cardImage={cardImage}
+              cardRare={cardRare}
+              cardTrunfo={cardTrunfo}
+              hasTrunfo={hasTrunfo}
+              isSaveButtonDisabled={isSaveButtonDisabled}
+              onInputChange={this.handleChange}
+              onSaveButtonClick={this.saveCard}
 
-       </main>  
-      
+            />
+            <Card
+              cardName={cardName}
+              cardDescription={cardDescription}
+              cardAttr1={cardAttr1}
+              cardAttr2={cardAttr2}
+              cardAttr3={cardAttr3}
+              cardImage={cardImage}
+              cardRare={cardRare}
+              cardTrunfo={cardTrunfo}
+
+            />
+
+          </main>
+
           <Filtred
-            filterCardName={ this.filterCardByName }
-            filterCardRarity={ this.filterCardByRarity }
-            filterCardByTrunfo={ this.filterCardByTrunfo }
-            trunfoFilter={ trunfoFilter }
-  
-          />
-           <section className='deck'>
-          <Cards
-            removeCard={ this.removeCard }
-            deckCards={ deckCards }
-            filterByName={ filterByName }
-            filterByRarity={ filterByRarity }
-            trunfoFilter={ trunfoFilter }
-          />
-       </section>
+            filterCardName={this.filterCardByName}
+            filterCardRarity={this.filterCardByRarity}
+            filterCardByTrunfo={this.filterCardByTrunfo}
+            trunfoFilter={trunfoFilter}
 
-      </div>
+          />
+          <section className='deck'>
+            <Cards
+              removeCard={this.removeCard}
+              deckCards={deckCards}
+              filterByName={filterByName}
+              filterByRarity={filterByRarity}
+              trunfoFilter={trunfoFilter}
+            />
+          </section>
+
+        </div>
       </>
     );
   }

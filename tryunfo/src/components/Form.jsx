@@ -21,88 +21,88 @@ export default class Form extends React.Component {
         <label htmlFor="cardName">
           nome
         </label>
-          <input
-            type="text"
-            data-testid="name-input"
-            id="cardName"
-            value={ cardName }
-            onChange={ onInputChange }
-            name="cardName"
-          />
+        <input
+          type="text"
+          data-testid="name-input"
+          id="cardName"
+          value={cardName}
+          onChange={onInputChange}
+          name="cardName"
+        />
 
         <label htmlFor="cardDescri">
           descrição
 
         </label>
-          <textarea
-            data-testid="description-input"
-            id="cardDescri"
-            value={ cardDescription }
-            onChange={ onInputChange }
-            name="cardDescription"
-          />
+        <textarea
+          data-testid="description-input"
+          id="cardDescri"
+          value={cardDescription}
+          onChange={onInputChange}
+          name="cardDescription"
+        />
 
-       <section className='attr'>
+        <section className='attr'>
           <label htmlFor="firstAtribute">
-            attr01
+          Força💥
             <input
               type="number"
               data-testid="attr1-input"
               id="firstAtribute"
-              value={ cardAttr1 }
-              onChange={ onInputChange }
+              value={cardAttr1}
+              onChange={onInputChange}
               name="cardAttr1"
             />
-  
+
           </label>
-  
+
           <label htmlFor="secondAtribute">
-            attr02
+          Precisão🎯
             <input
               type="number"
               data-testid="attr2-input"
               id="secondAtribute"
-              value={ cardAttr2 }
-              onChange={ onInputChange }
+              value={cardAttr2}
+              onChange={onInputChange}
               name="cardAttr2"
             />
-  
+
           </label>
-  
+
           <label htmlFor="thirdAtribute">
-            attr03
+            Saúde ❤️
             <input
               type="number"
               data-testid="attr3-input"
               id="thirdAtribute"
-              value={ cardAttr3 }
-              onChange={ onInputChange }
+              value={cardAttr3}
+              onChange={onInputChange}
               name="cardAttr3"
             />
-  
+
           </label>
-  
+
           <label htmlFor="cardImage">
             image
             <input
               type="text"
               id="Input-cardImage"
               data-testid="image-input"
-              value={ cardImage }
-              onChange={ onInputChange }
+              value={cardImage}
+              onChange={onInputChange}
               name="cardImage"
             />
-  
+
           </label>
 
-       </section>  
+        </section>
         <label htmlFor="cardRarity">
-          raridade
+          Raridade
           <select
             id="Input-CardRarity"
             data-testid="rare-input"
-            value={ cardRare }
-            onChange={ onInputChange }
+            value={cardRare}
+            onChange={onInputChange}
             name="cardRare"
           >
             <option> </option>
@@ -128,8 +128,8 @@ export default class Form extends React.Component {
                   type="checkbox"
                   id="sTrunfo"
                   data-testid="trunfo-input"
-                  checked={ cardTrunfo }
-                  onChange={ onInputChange }
+                  checked={cardTrunfo}
+                  onChange={onInputChange}
                   name="cardTrunfo"
                 />
               )
@@ -138,8 +138,8 @@ export default class Form extends React.Component {
         <button
           type="button"
           data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
+          disabled={isSaveButtonDisabled}
+          onClick={onSaveButtonClick}
 
         >
           Salvar
@@ -162,4 +162,5 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
-  hasTrunfo: PropTypes.bool }.isRequired;
+  hasTrunfo: PropTypes.bool
+}.isRequired;

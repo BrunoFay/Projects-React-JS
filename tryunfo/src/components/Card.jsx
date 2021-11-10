@@ -29,6 +29,11 @@ export default class Card extends React.Component {
           {cardTrunfo && <div data-testid="trunfo-card" id='card-trunfo'>Super Trunfo</div>}
        </div>
         <span data-testid="description-card" name="cardDescription" className ='card-desc'>{cardDescription}</span>
+        <div className='icons'> 
+          <label>💥</label>
+          <label>🎯</label>
+          <label>❤️</label>
+        </div>
        <div className='card-atts'>
           <span data-testid="attr1-card" name="cardAttr1" className='card-att'>{cardAttr1}</span>
           <span data-testid="attr2-card" name="cardAttr2"className='card-att'>{cardAttr2}</span>
