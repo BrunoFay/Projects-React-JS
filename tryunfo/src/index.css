@@ -1,96 +1,190 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
-
-*{
+* {
   margin: 0;
 }
+
 body {
-  
   font-family: Zen Antique;
-  color: #171a20da;
-  
+  background-color: rgb(234, 238, 185);
+  height: 1000px;
 }
-header{
-  margin:0 0 70px 0;
-  background: linear-gradient(to right, #11998e, #38ef7d);
+
+h1 {
+  background: -webkit-linear-gradient(#05051475, #da460b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header {
+  margin: 0 0 40px 0;
+  background: linear-gradient(to right, #11998e, #7a8b81);
   height: 80px;
+  display: flex;
+  justify-content: space-between;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+header h1, em {
+  margin: 0 50px;
 }
-form{
+
+em {
+  color: #f5af19;
+}
+
+form {
   display: flex;
   flex-direction: column;
   background: linear-gradient(to top, #a8ff78, #78ffd6);
   text-align: center;
- font-size: larger;
+  font-size: larger;
   box-shadow: 0px 0px 30px -5px rgb(25, 80, 24);
   border-radius: 10px;
-  height: 500px;
+  height: 700px;
+  color: #531e09;
 }
-form button{
+
+form button {
   width: 80px;
   margin: 20px 300px;
+  border-color: #040533;
+  height: 30px;
+  border-radius: 7px;
 }
-form input{
-  border-radius: 3px;
-}
-label{margin-top: 8px;}
-.attr{
-  display: flex;
-  flex-direction: column;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
- #Input-cardImage,#Input-CardRarity{
-  margin: 10px;
 
+nav {
+  padding-top: 20px;
 }
-main{
+
+nav a {
+  color: rgb(3, 16, 29);
+  margin: 50px;
+  text-decoration: none;
+  font-size: larger;
+}
+
+input {
+  border-radius: 3px;
+  border: none;
+}
+
+input:focus, #filter-rarity, select {
+  outline: 0;
+}
+
+form label {
+  margin-top: 20px;
+}
+
+label {
+  margin-top: 8px;
+}
+
+select {
+  background-color: #415e39;
+  color: white;
+  padding: 4px;
+  border-radius: 7px;
+  border: none;
+}
+
+main {
   display: flex;
   justify-content: space-evenly;
 }
-#sTrunfo{
+
+/* formulario */
+
+.attr {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 10px;
+}
+
+.labels-attr {
+  margin-right: 7%;
+}
+
+.labels-attr2 {
+  margin-right: 10%;
+}
+
+#Input-cardImage, #Input-CardRarity {
+  margin: 10px;
+}
+
+#sTrunfo {
   margin: 0 10px;
 }
-#card-trunfo{
+
+#card-trunfo {
   color: rgb(243, 178, 13);
 }
 
-#cardDescri{
+#cardDescri {
   width: 250px;
   height: 60px;
   margin: 10px 0 10px 32%;
 }
-#cardName{
-  margin:10px  32%;
+
+#cardName {
+  margin: 10px 32%;
   width: 250px;
 }
-#firstAtribute,#secondAtribute,#thirdAtribute{
+
+.labels-attr {
+  margin-right: 7%;
+}
+
+.labels-attr2 {
+  margin-right: 10%;
+}
+
+#firstAtribute, #secondAtribute, #thirdAtribute {
   width: 150px;
   margin: 10px 15px;
 }
-#input-filter{
+
+/*  filtro*/
+
+#input-filter {
   border-radius: 7px;
   width: 250px;
   margin-bottom: 5px;
 }
-.filters{
-  margin: 200px 300px;
+
+#filter-rarity {
+  background-color: #3d413c;
+  color: white;
+  padding: 9px;
+  border-radius: 7px;
+  border: none;
+}
+
+.id {
+  display: none;
+}
+
+.filters {
+  margin: 50px 300px;
   box-shadow: 0px 0px 30px -5px rgb(80, 179, 15);
   border-radius: 10px;
   background: linear-gradient(to right, #11998e, #38ef7d);
   display: flex;
-  
 }
-.filters label{
-  padding:20px ;
-  
+
+.filters label {
+  padding: 20px;
   display: flex;
 }
-.filters input{
+
+.filters input {
   margin: 7px 0 0 20px;
 }
-.card{
+
+/* criação cards */
+
+.card {
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -98,80 +192,103 @@ main{
   width: 330px;
   max-height: 600px;
   text-align: center;
-  background: linear-gradient(to left, #667db6, #0082c8, #0082c8, #667db6);
+  background: linear-gradient(to left, #0f2027, #203a43, #2c5364);
   box-shadow: 0px 0px 30px -5px black;
   border-radius: 10px;
 }
 
-.card-atts{
-  
+.card-atts {
   background: linear-gradient(to bottom right, #f12711, #f5af19);
-  
   display: flex;
   justify-content: space-evenly;
   font-size: xx-large;
-  
 }
-.title {
 
- 
-  
+.title {
   background: linear-gradient(to bottom right, #f12711, #f5af19);
   width: 100%;
   font-size: xx-large;
-  
+  max-height: 100px;
 }
-.card-image{
+
+.card-image {
   margin: 5% 5%;
-  height: auto; 
-  width: auto; 
-  max-width: 290px; 
+  height: auto;
+  width: auto;
+  max-width: 290px;
   max-height: 290px;
   border-radius: 7px;
- 
 }
-.card-rarity{
+
+.card-rarity {
   display: flex;
   justify-content: space-around;
   color: crimson;
   font-size: larger;
+  font-weight: 900;
   margin-bottom: 10%;
 }
-.cards-deck{
-  height: auto;
-}
-.card-desc{
+
+.card-desc {
+  font-size: small;
   background-color: bisque;
   white-space: normal;
   text-align: center;
-  height: 100px;
+  height: 150px;
   display: block;
-  overflow-wrap: break-word;
-  margin: 10px 50px 30px 50px ;
+  overflow: auto;
+  margin: 10px 50px 30px 50px;
   border-radius: 7px;
   box-shadow: 0px 0px 30px -5px rgb(185, 168, 148);
- 
 }
-.deck{
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+}
+
+/* cards no deck */
+
+.deck {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 .cards-deck {
   display: flex;
   flex-direction: column;
-  
-  
+  height: auto;
+  opacity: 0.3;
+  transition: opacity .5s ease;
 }
 
-.cards-deck button{
-  width: 50%;
-  margin: 10px 80px;
-  justify-content: center;
+.cards-deck:hover {
+  opacity: 1;
 }
-.icons{
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 5px;
+
+.btn-remove {
+  border-radius: 7px;
+  height: 30px;
+  width: 90px;
+  margin: 10px 0 20px 35%;
 }
+
+.btn-remove {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.btn-remove:hover {
+  box-shadow: 0 0 40px 40px #e74c3c inset;
+}
+
+/* css buttons https://edrodrigues.com.br/blog/20-incriveis-botoes-animados-de-css-puro/
+
+css background gradient https://uigradients.com/
+
+css opacity/transition cards https://www.youtube.com/watch?v=JDj5QGefetM&list=PLQJ8gyeGbuDoo2jycRn9nEBhuyg3gDzOi&index=10
+
+*/

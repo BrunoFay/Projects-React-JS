@@ -11,7 +11,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+//font imagens e descriçoes: https://www.rankings.com.br/melhores-jogadores-de-basquete/
+// https://www.hoop78.com/artigos/09/01/2018/5_dos_piores_all-stars_na_historia_da_nba
+
 reportWebVitals();

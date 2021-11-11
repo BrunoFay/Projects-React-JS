@@ -16,10 +16,11 @@ export default class Form extends React.Component {
       isSaveButtonDisabled,
       onSaveButtonClick } = this.props;
 
-    return (
+    return (<>
       <form>
+    <h1>Adicionar nova carta </h1>
         <label htmlFor="cardName">
-          nome
+          Nome
         </label>
         <input
           type="text"
@@ -31,7 +32,7 @@ export default class Form extends React.Component {
         />
 
         <label htmlFor="cardDescri">
-          descrição
+          Descrição
 
         </label>
         <textarea
@@ -43,7 +44,7 @@ export default class Form extends React.Component {
         />
 
         <section className='attr'>
-          <label htmlFor="firstAtribute">
+          <label htmlFor="firstAtribute" className='labels-attr'>
           Força💥
             <input
               type="number"
@@ -56,7 +57,7 @@ export default class Form extends React.Component {
 
           </label>
 
-          <label htmlFor="secondAtribute">
+          <label htmlFor="secondAtribute"className='labels-attr2'>
           Precisão🎯
             <input
               type="number"
@@ -69,8 +70,8 @@ export default class Form extends React.Component {
 
           </label>
 
-          <label htmlFor="thirdAtribute">
-            Saúde ❤️
+          <label htmlFor="thirdAtribute" className='labels-attr'>
+            Velocidade⚡
             <input
               type="number"
               data-testid="attr3-input"
@@ -82,8 +83,8 @@ export default class Form extends React.Component {
 
           </label>
 
-          <label htmlFor="cardImage">
-            image
+          <label htmlFor="Input-cardImage" className='labels-attr'>
+            Imagem
             <input
               type="text"
               id="Input-cardImage"
@@ -96,7 +97,7 @@ export default class Form extends React.Component {
           </label>
 
         </section>
-        <label htmlFor="cardRarity">
+        <label htmlFor="Input-CardRarity">
           Raridade
           <select
             id="Input-CardRarity"
@@ -114,13 +115,13 @@ export default class Form extends React.Component {
         </label>
 
         <label htmlFor="sTrunfo">
-          super trunfo
+          Super Trunfo
           {/* referencia https://github.com/tryber/sd-015-b-project-tryunfo/pull/53/commits/28e2fcad843a02e4c70ef0c75e9ab87716a1a043 */}
           {
             hasTrunfo
               ? (
                 <p>
-                  Você já tem um Super Trunfo em seu baralho
+                  Você já tem um Super Trunfo em seu Deck
                 </p>
               )
               : (
@@ -146,6 +147,7 @@ export default class Form extends React.Component {
         </button>
 
       </form>
+      </>
     );
   }
 }

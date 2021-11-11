@@ -3,11 +3,13 @@ import Form from './components/Form';
 import Card from './components/Card';
 import Cards from './components/Cards';
 import Filtred from './components/FilterInput';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      id: 0,
       cardName: '',
       cardDescription: '',
       cardAttr1: '',
@@ -31,6 +33,7 @@ class App extends React.Component {
     this.filterCardByName = this.filterCardByName.bind(this);
     this.filterCardByRarity = this.filterCardByRarity.bind(this);
     this.filterCardByTrunfo = this.filterCardByTrunfo.bind(this);
+
   }
   componentDidMount() {
     let cards = localStorage.getItem('deckCards');
@@ -67,8 +70,8 @@ class App extends React.Component {
       cardImage,
       cardRare } = this.state;
 
-    const maxValue = 210;
-    const maxValueCard = 90;
+    const maxValue = 300;
+    const maxValueCard = 100;
     const minValueCard = 0;
     const checkMaxValueCard = (Number(cardAttr1) <= maxValueCard
       && Number(cardAttr2) <= maxValueCard
@@ -104,8 +107,12 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      deckCards } = this.state;
+      deckCards,
+      id,
+    } = this.state;
+
     const updatedDeck = [...deckCards, {
+      id: id,
       name: cardName,
       description: cardDescription,
       cardValues: {
@@ -117,6 +124,7 @@ class App extends React.Component {
       rarity: cardRare,
       trunfo: cardTrunfo,
     }]
+    const ramdomId = () => Math.round(Math.random() * 9999)
 
     if (cardTrunfo) this.setState({ hasTrunfo: true });
     this.setState(() => ({
@@ -125,14 +133,17 @@ class App extends React.Component {
     localStorage.setItem('deckCards', JSON.stringify(updatedDeck));
     // https://www.youtube.com/watch?v=8SbOweou7Rw
     this.setState({
+      id: ramdomId(),
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardRare: 'normal',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
+      cardRare: '',
+      isSaveButtonDisabled: true
     }, this.checkTrunfo);
+
   }
 
   removeCard(cardName, cardTrunfo) {
@@ -160,7 +171,11 @@ class App extends React.Component {
     this.setState({ filterByRarity: target.value });
   }
 
-  filterCardByTrunfo({ target }) { this.setState({ trunfoFilter: target.checked }); }
+  filterCardByTrunfo({ target }) {
+    this.setState({ trunfoFilter: target.checked });
+  }
+
+
 
   render() {
     const {
@@ -177,65 +192,93 @@ class App extends React.Component {
       deckCards,
       filterByName,
       filterByRarity,
-
+      id,
       trunfoFilter,
     } = this.state;
 
     return (
-      <>
-        <header><h1>Tryunfo</h1></header>
+      <BrowserRouter>
+        <header>
+          <h1>Tryunfo</h1>
+
+          <nav>
+            <Link to='/' >Home</Link>
+            <Link to='/deck' >Deck</Link>
+          </nav>
+          <em>By Bruno Fay</em>
+        </header>
 
         <div className='mommy'>
 
-          <main>
-            <Form
-              cardName={cardName}
-              cardDescription={cardDescription}
-              cardAttr1={cardAttr1}
-              cardAttr2={cardAttr2}
-              cardAttr3={cardAttr3}
-              cardImage={cardImage}
-              cardRare={cardRare}
-              cardTrunfo={cardTrunfo}
-              hasTrunfo={hasTrunfo}
-              isSaveButtonDisabled={isSaveButtonDisabled}
-              onInputChange={this.handleChange}
-              onSaveButtonClick={this.saveCard}
+          <Route exact path='/'
 
-            />
-            <Card
-              cardName={cardName}
-              cardDescription={cardDescription}
-              cardAttr1={cardAttr1}
-              cardAttr2={cardAttr2}
-              cardAttr3={cardAttr3}
-              cardImage={cardImage}
-              cardRare={cardRare}
-              cardTrunfo={cardTrunfo}
+            render={
+              (props) =>
+                <main>
+                  <Form
+                    {...props}
+                    cardName={cardName}
+                    cardDescription={cardDescription}
+                    cardAttr1={cardAttr1}
+                    cardAttr2={cardAttr2}
+                    cardAttr3={cardAttr3}
+                    cardImage={cardImage}
+                    cardRare={cardRare}
+                    cardTrunfo={cardTrunfo}
+                    hasTrunfo={hasTrunfo}
+                    isSaveButtonDisabled={isSaveButtonDisabled}
+                    onInputChange={this.handleChange}
+                    onSaveButtonClick={this.saveCard}
 
-            />
+                  />
 
-          </main>
 
-          <Filtred
-            filterCardName={this.filterCardByName}
-            filterCardRarity={this.filterCardByRarity}
-            filterCardByTrunfo={this.filterCardByTrunfo}
-            trunfoFilter={trunfoFilter}
+                  <Card
+                    {...props}
+                    id={id}
+                    cardName={cardName}
+                    cardDescription={cardDescription}
+                    cardAttr1={cardAttr1}
+                    cardAttr2={cardAttr2}
+                    cardAttr3={cardAttr3}
+                    cardImage={cardImage}
+                    cardRare={cardRare}
+                    cardTrunfo={cardTrunfo}
 
-          />
-          <section className='deck'>
-            <Cards
-              removeCard={this.removeCard}
-              deckCards={deckCards}
-              filterByName={filterByName}
-              filterByRarity={filterByRarity}
-              trunfoFilter={trunfoFilter}
-            />
-          </section>
+                  />
+
+                </main>
+            } />
+
+          <Route exact path='/deck'
+            render={(props) =>
+              <>
+                <Filtred
+                  {...props}
+                  filterCardName={this.filterCardByName}
+                  filterCardRarity={this.filterCardByRarity}
+                  filterCardByTrunfo={this.filterCardByTrunfo}
+                  trunfoFilter={trunfoFilter}
+
+                />
+
+
+                <section className='deck'>
+                  <Cards
+                    {...props}
+
+                    removeCard={this.removeCard}
+                    deckCards={deckCards}
+                    filterByName={filterByName}
+                    filterByRarity={filterByRarity}
+                    trunfoFilter={trunfoFilter}
+                  />
+                </section>
+              </>
+            } />
 
         </div>
-      </>
+      </BrowserRouter>
     );
   }
 }

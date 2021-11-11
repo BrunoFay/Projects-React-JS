@@ -32,10 +32,10 @@ export default class Filtred extends React.Component {
             data-testid="rare-filter"
             disabled={ trunfoFilter }
           >
-            <option>todas</option>
-            <option>normal</option>
-            <option>raro</option>
-            <option>muito raro</option>
+            <option>Todas</option>
+            <option>Normal</option>
+            <option>Raro</option>
+            <option>Muito Raro</option>
           </select>
         </label>
         <label htmlFor="trunfo-filter">

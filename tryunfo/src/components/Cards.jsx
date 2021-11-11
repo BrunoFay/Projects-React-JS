@@ -9,30 +9,31 @@ export default class Cards extends React.Component {
       removeCard,
       filterByName,
       filterByRarity,
-      trunfoFilter } = this.props;
+      trunfoFilter,
+    } = this.props;
     return (
 
       trunfoFilter ? deckCards
         .filter((card) => card.trunfo)
         .map((card) => (
-          <div key={ card.name } className='cards-deck' >
+          <div key={card.id} className='cards-deck' >
             <Card
-              cardName={ card.name }
-              cardDescription={ card.description }
-              cardAttr1={ card.cardValues.attr1 }
-              cardAttr2={ card.cardValues.attr2 }
-              cardAttr3={ card.cardValues.attr3 }
-              cardImage={ card.image }
-              cardRare={ card.rarity }
-              cardTrunfo={ card.trunfo }
-              deckCards={ card.deckCards }
-              removeCard={ this.removeCard }
+              cardName={card.name}
+              cardDescription={card.description}
+              cardAttr1={card.cardValues.attr1}
+              cardAttr2={card.cardValues.attr2}
+              cardAttr3={card.cardValues.attr3}
+              cardImage={card.image}
+              cardRare={card.rarity}
+              cardTrunfo={card.trunfo}
+              deckCards={card.deckCards}
+              removeCard={this.removeCard}
               className='cards-deck'
             />
             <button
               type="submit"
               data-testid="delete-button"
-              onClick={ () => removeCard(card.name, card.trunfo) }
+              onClick={() => removeCard(card.name, card.trunfo)}
             >
               Excluir
             </button>
@@ -41,37 +42,40 @@ export default class Cards extends React.Component {
         : deckCards.filter((card) => card.name
           .includes(filterByName))
           .filter((card) => {
-            if (filterByRarity === 'normal') {
-              return card.rarity === 'normal';
+            if (filterByRarity === 'Normal') {
+              return card.rarity === 'Normal';
             }
-            if (filterByRarity === 'raro') {
-              return card.rarity === 'raro';
+            if (filterByRarity === 'Raro') {
+              return card.rarity === 'Raro';
             }
-            if (filterByRarity === 'muito raro') {
-              return card.rarity === 'muito raro';
+            if (filterByRarity === 'Muito Raro') {
+              return card.rarity === 'Muito Raro';
             }
             return card;
           }).map((card) => (
-            <div key={ card.name }className='cards-deck'>
+            <div key={card.id} className='cards-deck'>
               <Card
-                cardName={ card.name }
-                cardDescription={ card.description }
-                cardAttr1={ card.cardValues.attr1 }
-                cardAttr2={ card.cardValues.attr2 }
-                cardAttr3={ card.cardValues.attr3 }
-                cardImage={ card.image }
-                cardRare={ card.rarity }
-                cardTrunfo={ card.trunfo }
-                deckCards={ card.deckCards }
-                removeCard={ this.removeCard }
+                cardName={card.name}
+                cardDescription={card.description}
+                cardAttr1={card.cardValues.attr1}
+                cardAttr2={card.cardValues.attr2}
+                cardAttr3={card.cardValues.attr3}
+                cardImage={card.image}
+                cardRare={card.rarity}
+                cardTrunfo={card.trunfo}
+                deckCards={card.deckCards}
+                removeCard={this.removeCard}
               />
-              <button
-                type="submit"
-                data-testid="delete-button"
-                onClick={ () => removeCard(card.name, card.trunfo) }
-              >
-                Excluir
-              </button>
+              <div className='wrap'>
+                <button
+                className='btn-remove'
+                  type="submit"
+                  data-testid="delete-button"
+                  onClick={() => removeCard(card.name, card.trunfo)}
+                >
+                  Excluir
+                </button>
+              </div>
             </div>
           ))
 

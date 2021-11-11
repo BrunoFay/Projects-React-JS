@@ -11,37 +11,39 @@ export default class Card extends React.Component {
       cardAttr3,
       cardName,
       cardImage,
-      cardRare } = this.props;
+      cardRare,
+      id } = this.props;
 
     return (
 
-      <div className='card'>
+      <section className='card'>
+        <span className='id'>{id}</span>
         <span data-testid="name-card" className="title">{cardName.toUpperCase()}</span>
         <img
           data-testid="image-card"
-          src={ cardImage }
-          alt={ cardName }
+          src={cardImage}
+          alt={cardName}
           name="cardImage"
           className='card-image'
         />
-       <div className = 'card-rarity'>
+        <div className='card-rarity'>
           <span data-testid="rare-card" name="cardRare">{cardRare}</span>
           {cardTrunfo && <div data-testid="trunfo-card" id='card-trunfo'>Super Trunfo</div>}
-       </div>
-        <span data-testid="description-card" name="cardDescription" className ='card-desc'>{cardDescription}</span>
-        <div className='icons'> 
+        </div>
+        <p data-testid="description-card" name="cardDescription" className='card-desc'>{cardDescription}</p>
+        <div className='icons'>
           <label>💥</label>
           <label>🎯</label>
-          <label>❤️</label>
+          <label>⚡</label>
         </div>
-       <div className='card-atts'>
+        <div className='card-atts'>
           <span data-testid="attr1-card" name="cardAttr1" className='card-att'>{cardAttr1}</span>
-          <span data-testid="attr2-card" name="cardAttr2"className='card-att'>{cardAttr2}</span>
-          <span data-testid="attr3-card" name="cardAttr3"className='card-att'>{cardAttr3}</span>
-       </div>
+          <span data-testid="attr2-card" name="cardAttr2" className='card-att'>{cardAttr2}</span>
+          <span data-testid="attr3-card" name="cardAttr3" className='card-att'>{cardAttr3}</span>
+        </div>
         {/* referencia para verificar o estado de cardTrunfo https://pt-br.reactjs.org/docs/conditional-rendering.html */}
 
-      </div>
+      </section>
 
     );
   }
