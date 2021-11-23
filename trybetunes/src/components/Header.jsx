@@ -50,7 +50,7 @@ export default class Header extends Component {
              <Link to="/search"className='links'
               data-testid="link-to-search">Search 🔍</Link></div>
           <div>
-            <Link to="/favorites" className='links' data-testid="link-to-favorites">Favorites ⭐</Link></div>
+            <Link to="/favorites" className='links' data-testid="link-to-favorites">Favorites ❤️</Link></div>
         <div> 
            <Link to="/profile" className='links'
             data-testid="link-to-profile">Profile 👤</Link></div>

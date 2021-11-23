@@ -39,7 +39,7 @@ export default class Favorites extends Component {
             : (
               <section id='favorite-musics'>
                 {FavoriteSongs
-                .map(({ trackName, previewUrl, trackId, }, index) => (
+                .map(({ trackName, previewUrl, trackId}, index) => (
                   <MusicCard
                     key={ index }
                     trackName={ trackName }

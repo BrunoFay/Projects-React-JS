@@ -73,7 +73,7 @@ export default class MusicCard extends Component {
             .
           </audio>
           <label htmlFor="favorite">
-            Favorita
+            ❤️
             <input
               type="checkbox"
               id="favorite"
