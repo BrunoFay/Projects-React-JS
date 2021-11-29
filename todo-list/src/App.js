@@ -7,6 +7,7 @@ export default function App() {
 
   const [tasks, setTasks] = useState([]);
   const imputTasks = useRef();
+  const checkbox =useRef()
  
   useEffect(() => {
     const getTasksFromStorage = JSON.parse(localStorage.getItem('TodoTasks'))
@@ -14,8 +15,10 @@ export default function App() {
   },[])
   useEffect(() => {
     localStorage.setItem('TodoTasks',JSON.stringify(tasks))
+     JSON.parse(localStorage.getItem('TodoTasks'))
+    
   },[tasks])
-
+ 
   function randomId() {
     return Math.round(Math.random() * 9999)
   }
@@ -31,18 +34,29 @@ export default function App() {
 
     }
   }
-    function handleClickDelete() {
-
+  /*   function handleTasks({target}) {
+      const checked= document.getElementsByName(target.name)
+    
+    console.log(target.name);
+    return checked.remove()
+    } */
+    function removeAllTasks() {
+      localStorage.removeItem('TodoTasks')
+      setTasks([])
     }
     return (<>
       <input ref={imputTasks}></input>
       <button type='submit' onClick={() => handleClickAdd()}>'adicionar '</button>
+      <button type='button' onClick={() => removeAllTasks()}>'limpar lista '</button>
+      
       <ol>
         {
-          tasks.map((task, index) => <li key={task.id}>
-            <input type='checkbox' value={!task.done}></input>
-            {task.value}
-            <button onClick={() => handleClickDelete()}>'x'</button>
+          tasks.map((task) => <li key={task.id}>
+           <label  >
+              <input type='checkbox' name={task.value} ref={checkbox} onChange={(e)=> handleTasks(e)}></input>
+              {task.value}
+           </label>
+           
           </li>)
         }
       </ol>
