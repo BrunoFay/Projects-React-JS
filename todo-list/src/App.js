@@ -34,26 +34,32 @@ export default function App() {
 
     }
   }
-  /*   function handleTasks({target}) {
-      const checked= document.getElementsByName(target.name)
+    function handleTasks({target}) {
+      const removeTask =checkbox.current.value
+      console.log(removeTask);
+    if(target.value === 'on'){
+      //remove a li do dom
+    //  target.parentElement.parentElement.remove() ;
+
+    }
     
-    console.log(target.name);
-    return checked.remove()
-    } */
+    }
     function removeAllTasks() {
       localStorage.removeItem('TodoTasks')
       setTasks([])
     }
     return (<>
-      <input ref={imputTasks}></input>
-      <button type='submit' onClick={() => handleClickAdd()}>'adicionar '</button>
+     <form>
+        <input ref={imputTasks}></input>
+        <button type='submit' onClick={() => handleClickAdd()}>'adicionar '</button>
       <button type='button' onClick={() => removeAllTasks()}>'limpar lista '</button>
+     </form>
       
       <ol>
         {
           tasks.map((task) => <li key={task.id}>
            <label  >
-              <input type='checkbox' name={task.value} ref={checkbox} onChange={(e)=> handleTasks(e)}></input>
+              <input type='checkbox' value={'on'&& !task.done} ref={checkbox} onChange={(e)=> handleTasks(e)}></input>
               {task.value}
            </label>
            
