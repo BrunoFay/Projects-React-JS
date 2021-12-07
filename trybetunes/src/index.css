@@ -349,9 +349,8 @@ margin-top: 1em;
   border-radius: 7em;
   font-size: x-large;
 }
-#link-edit-perfil:hover{
-  
+
+.link-select{
   text-shadow: 0.1em 0.1em 0.05em #333;
   color: rgb(148, 218, 79);
-
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Carregando from './Carregando';
 
@@ -47,13 +47,13 @@ export default class Header extends Component {
           </header>
           <nav>
            <div> 
-             <Link to="/search"className='links'
-              data-testid="link-to-search">Search 🔍</Link></div>
+             <NavLink activeClassName='link-select' to="/search"className='links'
+              data-testid="link-to-search">Search 🔍</NavLink></div>
           <div>
-            <Link to="/favorites" className='links' data-testid="link-to-favorites">Favorites ❤️</Link></div>
+            <NavLink activeClassName='link-select' to="/favorites" className='links' data-testid="link-to-favorites">Favorites ❤️</NavLink></div>
         <div> 
-           <Link to="/profile" className='links'
-            data-testid="link-to-profile">Profile 👤</Link></div>
+           <NavLink activeClassName='link-select' to="/profile" className='links'
+            data-testid="link-to-profile">Profile 👤</NavLink></div>
           </nav>
         </>
       );
