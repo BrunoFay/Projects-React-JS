@@ -18,15 +18,17 @@ export default function App() {
      JSON.parse(localStorage.getItem('TodoTasks'))
     
   },[tasks])
+  
  
   function randomId() {
     return Math.round(Math.random() * 9999)
   }
   function handleClickAdd() {
     const task = imputTasks.current.value
+    const checked = imputTasks.current.checked
     if (task.length > 1) {
       setTasks((prev) =>
-        [...prev, { id: randomId(), value: task, done: false }]
+        [...prev, { id: randomId(), value: task, checked }]
       )
       imputTasks.current.value = null
     } else {
@@ -34,32 +36,42 @@ export default function App() {
 
     }
   }
-    function handleTasks({target}) {
-      const removeTask =checkbox.current.value
-      console.log(removeTask);
-    if(target.value === 'on'){
+  function test({target}) {
+    
+   console.log(target.checked);
+   const fil = tasks.filter((task)=>task.id === 143)
+   //console.log(fil);
+    
+  }
+    function handleTasks() {
+      const fil = tasks
+      
+   /*  if(target.checked === 'true'){
       //remove a li do dom
-    //  target.parentElement.parentElement.remove() ;
+    target.parentElement.remove() ;
 
-    }
+    } */
     
     }
     function removeAllTasks() {
       localStorage.removeItem('TodoTasks')
       setTasks([])
     }
+    
     return (<>
      <form>
         <input ref={imputTasks}></input>
-        <button type='submit' onClick={() => handleClickAdd()}>'adicionar '</button>
-      <button type='button' onClick={() => removeAllTasks()}>'limpar lista '</button>
+        <button type='submit' onClick={() => handleClickAdd()}>adicionar </button>
+      <button type='button' onClick={() => removeAllTasks()}>limpar lista </button>
+      <button type='button' onClick={() =>handleTasks() }> remover ja prontas </button>
+
      </form>
       
       <ol>
         {
           tasks.map((task) => <li key={task.id}>
-           <label  >
-              <input type='checkbox' value={'on'&& !task.done} ref={checkbox} onChange={(e)=> handleTasks(e)}></input>
+           <label  onClick={(e)=> test(e)}>
+              <input type='checkbox' id={task.id} ref={checkbox} onChange={()=> handleTasks()}></input>
               {task.value}
            </label>
            
