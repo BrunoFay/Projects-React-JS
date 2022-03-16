@@ -195,13 +195,16 @@ class App extends React.Component {
       id,
       trunfoFilter,
     } = this.state;
+    var Spinner = require('react-spinkit');
 
+    
     return (
       <BrowserRouter>
         <header>
           <h1>Tryunfo</h1>
 
           <nav>
+          
             <Link to='/' >Home</Link>
             <Link to='/deck' >Deck</Link>
           </nav>
